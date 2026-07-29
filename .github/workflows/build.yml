@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    name: Compile menubar apps
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show Swift version
+        run: swiftc --version
+
+      - name: Build all apps
+        run: |
+          for app in caffeinate-toggle menubar-calendar claude-usage-monitor; do
+            echo "== Building $app =="
+            "$app/build.sh"
+          done
+
+      - name: Run unit tests
+        run: ./claude-usage-monitor/test.sh
