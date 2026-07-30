@@ -185,7 +185,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var lastUpdated: Date?
     private var isRefreshing = false
     private var flashAcknowledged = false   // in-memory ack; resets when usage drops back under
-    private let thresholdPresets = [50, 60, 70, 75, 80, 85, 90, 95]
+    private let thresholdPresets = [10, 20, 30, 50, 60, 70, 75, 80, 85, 90, 95]
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
